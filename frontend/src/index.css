@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  min-height: 100%;
+  background-color: #0a0a0a;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #0a0a0a;
+  background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: #f0f0f0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: #2a2a2a #111111;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 999px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+@layer components {
+  .cx-card {
+    @apply rounded-lg border border-border-dark bg-bg-card p-6 shadow-panel transition-colors duration-200;
+  }
+
+  .cx-card:hover {
+    border-color: #00ff88;
+  }
+
+  .cx-input {
+    @apply w-full rounded border border-border-dark bg-bg-secondary px-3 py-2 text-text-primary outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent;
+  }
+
+  .cx-button {
+    @apply inline-flex items-center justify-center gap-2 rounded bg-accent px-4 py-3 font-mono text-sm font-bold uppercase tracking-[0.18em] text-black transition-colors duration-200 hover:bg-[#00cc6e] disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .cx-section-label {
+    @apply font-mono text-xs uppercase tracking-[0.22em] text-text-muted;
+  }
+}
+
+.terminal-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+.stage-runner {
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-runner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.9), transparent);
+  transform: translateX(-100%);
+  animation: stage-run 2.6s linear infinite;
+}
+
+.spinner-arc {
+  border: 2px solid rgba(255, 170, 0, 0.2);
+  border-top-color: #ffaa00;
+  border-radius: 999px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stage-run {
+  to {
+    transform: translateX(100%);
+  }
+}

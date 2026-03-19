@@ -201,6 +201,55 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# CompressX runtime state
+jobs/
+checkpoints/
+offload/
+jobs.db
+jobs.db-journal
+
+# Local model/test outputs
+test_output/
+test_output_*/
+test_p1/
+test_p2_cpu/
+test_p3_gpt2/
+test_p3_opt/
+test_p4_noqep/
+test_p4_qep/
+frontend-download-test/
+
+# Frontend build and local tooling
+frontend/node_modules/
+frontend/dist/
+frontend/selenium-downloads/
+
+# Local environments and install logs
+.venv-cuda/
+torch_install.log
+torch_cpu_install.log
+venv_torch_install.log
+
+# Generated archives and local verification artifacts
+*.zip
+phase5-verify.json
+phase5-verify-focus.json
+phase5-download-check.json
+slider-test.json
+
+# Local server logs
+*.err.log
+backend-live.log
+backend-live.err.log
+backend-phase1-test.log
+backend-phase1-test.err.log
+phase5-backend.log
+phase5-backend.err.log
+frontend/frontend-live.log
+frontend/frontend-live.err.log
+frontend/phase5-frontend.log
+frontend/phase5-frontend.err.log
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

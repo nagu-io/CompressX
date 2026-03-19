@@ -1,0 +1,12 @@
+model_id: "meta-llama/Llama-3-8B"
+output_dir: "./compressed_model"
+target_size_gb: 3
+quantization:
+  default_bits: 4
+  sensitive_bits: 8
+pruning:
+  head_threshold: 0.01
+  layer_threshold: 0.85
+distillation:
+  enabled: false
+  steps: 500
